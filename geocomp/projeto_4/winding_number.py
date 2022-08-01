@@ -47,7 +47,7 @@ def Winding_Number(l):
             angulo = 2*math.pi - angulo
 
         # Define o sinal do angulo
-        if (prim.left(p1, p2, origem)):
+        if prim.left(p1, p2, origem):
             angulo *= -1
 
         # Soma o valor
