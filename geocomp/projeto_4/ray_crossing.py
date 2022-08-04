@@ -23,7 +23,7 @@ def Ray_Crossing(l):
     for i in range(len(l)):
         segm_l = l[i]
 
-        segm_l.hilight()
+        segm_l.hilight("blue")
 
         p1 = Point(segm_l.init.x, segm_l.init.y)
         p2 = Point(segm_l.to.x, segm_l.to.y)

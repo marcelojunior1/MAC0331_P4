@@ -9,7 +9,7 @@ from geocomp import config
 from geocomp.common.point import Point
 from geocomp.common.segment import Segment
 
-TOL = 10 ^ (-6)
+TOL = 10**(-6)
 
 
 def Winding_Number(l):
@@ -26,8 +26,8 @@ def Winding_Number(l):
         segm1 = Segment(origem, segm.init)
         segm2 = Segment(origem, segm.to)
 
-        segm1.hilight()
-        segm2.hilight()
+        segm1.hilight("blue")
+        segm2.hilight("blue")
         origem.hilight("yellow")
 
         # Define os pontos
@@ -67,7 +67,6 @@ def Winding_Number(l):
         segm1.hide()
         segm2.hide()
 
-    print(soma)
     if abs(soma) < TOL:
         origem.hilight("red")
     else:
