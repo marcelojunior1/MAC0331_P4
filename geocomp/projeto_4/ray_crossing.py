@@ -1,12 +1,5 @@
-from math import inf
-
-from geocomp.common import prim
-from geocomp.common import segment
 from geocomp.common import control
-from geocomp import config
 from geocomp.common.point import Point
-from geocomp.common.prim import intersect
-from geocomp.common.segment import Segment
 
 
 def Ray_Crossing(l):
@@ -18,6 +11,10 @@ def Ray_Crossing(l):
 
     c = 0
     d = 0
+
+    control.sleep()
+
+    linha = control.plot_horiz_line(ponto.y, "blue", 1)
 
     control.sleep()
     for i in range(len(l)):
@@ -36,6 +33,7 @@ def Ray_Crossing(l):
         if p1.x == 0 and p1.y == 0:
             print("Dentro")
             ponto.hilight("green")
+            control.plot_delete(linha)
             return True
 
         teste_c = (p1.y > 0) is not (p2.y > 0)
@@ -53,17 +51,19 @@ def Ray_Crossing(l):
     if not ((c % 2 == 0 and d % 2 == 0) or (c % 2 != 0 and d % 2 != 0)):
         print("Dentro")
         ponto.hilight("green")
+        control.plot_delete(linha)
         return True
 
     if c % 2 != 0:
         print("Dentro")
         ponto.hilight("green")
+        control.plot_delete(linha)
         return True
     else:
         print("Fora")
         ponto.hilight("red")
+        control.plot_delete(linha)
         return False
-
 
 def intersecao_eixo_x(p1, p2):
     x = (p1.x * p2.y - p2.x * p1.y) / (p2.y - p1.y)
